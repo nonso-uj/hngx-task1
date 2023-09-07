@@ -20,11 +20,11 @@ app.get('/api', (req, res) => {
         let date = new Date
     
         resObj.slack_name = req.query.slack_name
-        resObj.track = date.toLocaleDateString("en-gb", {weekday: "long"})
+        resObj.current_day = date.toLocaleDateString("en-gb", {weekday: "long"})
         resObj.utc_time = date.toISOString()
         resObj.track = req.query.track
-        resObj.github_repo_url = "https://github.com/nonso-uj/hngx-task1"
         resObj.github_file_url = "https://github.com/nonso-uj/hngx-task1/blob/main/app.js"
+        resObj.github_repo_url = "https://github.com/nonso-uj/hngx-task1"
         resObj.status_code = 200
     }else{
         resObj.error = "Bad Request"
