@@ -12,21 +12,19 @@ app.get('/', (req, res) => {
 })
 
 
-// http://localhost:3000/api?slack_name=yup&track=backend
 
 app.get('/api', (req, res) => {
     let resObj = {}
-    console.log(req.query)
 
     if (req.query.slack_name && req.query.track){
         let date = new Date
     
         resObj.slack_name = req.query.slack_name
-        resObj.track = req.query.track
-        resObj.utc_time = date.toISOString()
         resObj.track = date.toLocaleDateString("en-gb", {weekday: "long"})
-        resObj.github_file_url = ""
-        resObj.github_repo_url = ""
+        resObj.utc_time = date.toISOString()
+        resObj.track = req.query.track
+        resObj.github_repo_url = "https://github.com/nonso-uj/hngx-task1"
+        resObj.github_file_url = "https://github.com/nonso-uj/hngx-task1/blob/main/app.js"
         resObj.status_code = 200
     }else{
         resObj.error = "Bad Request"
