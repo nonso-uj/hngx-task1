@@ -21,7 +21,7 @@ app.get('/api', (req, res) => {
     
         resObj.slack_name = req.query.slack_name
         resObj.current_day = date.toLocaleDateString("en-gb", {weekday: "long"})
-        resObj.utc_time = date.toISOString()
+        resObj.utc_time = date.toISOString().split('.')[0]+"Z"
         resObj.track = req.query.track
         resObj.github_file_url = "https://github.com/nonso-uj/hngx-task1/blob/main/app.js"
         resObj.github_repo_url = "https://github.com/nonso-uj/hngx-task1"
